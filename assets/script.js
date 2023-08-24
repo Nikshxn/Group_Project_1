@@ -43,4 +43,3 @@ cardHeader.append(h2)
 //add listener event for pain on sidebar(triggers the function that grabs and stores the data for pain)
 //add listener event for sleep at top (triggers chart to be updated with new info for sleep)
 //add listener event for sleep on sidebar(triggers the function that grabs and stores the data for sleep)
-
