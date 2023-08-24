@@ -1,29 +1,34 @@
 :root {
-    --dark: #00a6a6;
-    --med: #59a596;
---light:whitesmoke;
-    --sand:#b2a496;
---red:#9c2412;
+    --dark: #548464;
+    --med1: #8ead9a;
+    --med2: #6d9f91;
+    --light: #d7e2db;
+    --blue: #7bd9f8;
+    --red: #9c2412;
 
 
 }
-.health-tip, aside, quote-day, chart {
+
+.health-tip,
+aside,
+quote-day,
+chart {
     border: 3px solid var(--light);
-    background-color:var(--med);
-    color:black;
+    background-color: var(--med);
+    color: black;
 }
 
-header{
-    border:var(--light);
+header {
+    border: var(--light);
     background-color: var(--dark);
 }
 
 #carouselSlides {
-max-height: 400px;
+    max-height: 400px;
 }
 
 .carousel-image {
-    
+
     width: 60%;
     height: 60%;
 }
