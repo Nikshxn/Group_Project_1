@@ -2,6 +2,8 @@ const asideButton = document.querySelector(aside-button);
 const navButton = document.querySelector(nav-button);
 const dailySurvey = document.querySelector(daily-survery);
 const sectionBlock = document.querySelector(section-block);
+
+
 //add the rest of the const or var that need to be done once JD has finished with entering all of the checkboxes
 
 //add current date to the top of the header using dayjs
@@ -14,7 +16,15 @@ const sectionBlock = document.querySelector(section-block);
 
 
 // function that retreives the quote of the day from quote API and places it in the appropriate "card" (this function should include the building of the card from bootstrapand appending elements)
+var quoteOfTheDay = <a href="https://chrome.google.com/webstore/detail/quote-of-the-day/">
+Quote of the Day
+</a>
 
+h2.append(span)
+cardHeader.append(h2)
+ cardBody.append(quoteOfTheDay)
+ card.append(cardHeader,cardBody)
+ forecastEL.append(card)
 //function that retreives the health tip of the day from google API and places it in the appropriate "card" (this function should include the building of the card from bootstrap and appending elements)
 
 //function that retreives the cumulative array produced earlier and uses it to create a chart - use the API we discussed in the planning session for this -place chart in a card that is created through bootstrap and appending elements
