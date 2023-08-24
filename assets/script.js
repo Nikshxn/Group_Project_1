@@ -1,8 +1,11 @@
-const asideButton = document.querySelector(aside-button);
-const navButton = document.querySelector(nav-button);
-const dailySurvey = document.querySelector(daily-survery);
-const sectionBlock = document.querySelector(section-block);
-
+var asBtn = document.querySelector(".asBtn");
+var navButton = document.querySelector(".navButton");
+var dailySurvey = document.querySelector(".dailySurvey");
+var sectionBlock = document.querySelector(".sectionBlock");
+var quoteDay = document.querySelector(".quote-day");
+console.log(quoteDay)
+const apiKey = "431/rZ1NcazKVlEfxzCcFA==CPMgiJ8hSmqD6dDe"
+const url = "https://api.api-ninjas.com/v1/quotes?category=inspirational"
 
 //add the rest of the const or var that need to be done once JD has finished with entering all of the checkboxes
 
@@ -16,15 +19,45 @@ const sectionBlock = document.querySelector(section-block);
 
 
 // function that retreives the quote of the day from quote API and places it in the appropriate "card" (this function should include the building of the card from bootstrapand appending elements)
-var quoteOfTheDay = <a href="https://chrome.google.com/webstore/detail/quote-of-the-day/">
-Quote of the Day
-</a>
 
-h2.append(span)
-cardHeader.append(h2)
- cardBody.append(quoteOfTheDay)
- card.append(cardHeader,cardBody)
- forecastEL.append(card)
+function displayQuoteOfTheDay() {
+    quoteDay.innerHTML = ""
+
+
+
+    async function getapi(urlParam) {
+        const response = await fetch(urlParam,
+            { headers: { 'X-Api-Key': apiKey } });
+        var data = await response.json();
+        console.log("hello JD");
+        console.log(data);
+        // return data;
+
+
+        const card = document.createElement("div")
+        card.setAttribute("class", "card quoteOfDay")
+        const cardHeader = document.createElement("div")
+        cardHeader.setAttribute("class", "card-header")
+        const cardBody = document.createElement("div")
+        cardBody.setAttribute("class", "card-body")
+        const span = document.createElement("span")
+        const h3 = document.createElement("h3")
+        h3.textContent = "Quote of the Day"
+        console.log("I got to here!")
+        h3.append(span)
+        cardHeader.append(h3)
+        console.log(data)
+        cardBody.append(data[0].quote)
+        card.append(cardHeader, cardBody)
+        quoteDay.append(card)
+        console.log("and here!")
+    }
+
+    var quoteObject = getapi(url);
+
+}
+displayQuoteOfTheDay()
+
 //function that retreives the health tip of the day from google API and places it in the appropriate "card" (this function should include the building of the card from bootstrap and appending elements)
 
 //function that retreives the cumulative array produced earlier and uses it to create a chart - use the API we discussed in the planning session for this -place chart in a card that is created through bootstrap and appending elements
@@ -42,5 +75,4 @@ cardHeader.append(h2)
 //add listener event for pain at top (triggers chart to be updated with new info for pain)
 //add listener event for pain on sidebar(triggers the function that grabs and stores the data for pain)
 //add listener event for sleep at top (triggers chart to be updated with new info for sleep)
-//add listener event for sleep on sidebar(triggers the function that grabs and stores the data for sleep)
-
+//add listener event for sleep on sidebar(triggers the function that grabs and stores the data for sleep
