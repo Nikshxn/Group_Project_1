@@ -6,6 +6,7 @@ const sectionBlock = document.querySelector(section-block);
 
 //add current date to the top of the header using dayjs
 
+//TODO: prefix on checkboxes because they need to be unique
 //function to recognize what number is checked in each of the categories
 
 //function that takes the data and place it in a cumulative array for that category
