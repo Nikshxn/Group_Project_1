@@ -17,3 +17,13 @@ header{
     border:var(--light);
     background-color: var(--dark);
 }
+
+#carouselSlides {
+max-height: 400px;
+}
+
+.carousel-image {
+    
+    width: 60%;
+    height: 60%;
+}
