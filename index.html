@@ -20,36 +20,31 @@
 
 <body>
     <header>
-        <div class="logo">
-            <figure class="logo-image">
-                <img src="assets/images/health-esteem-logo.png" alt="Health-esteem app logo">
-            </figure>
+        <div class="logo-image">
+            <img src="assets/images/health-esteem-logo.png" alt="Health-esteem app logo">
         </div>
-        <nav id="customNav" class="navbar-nav d-flex flex-row justify-content-center">
-            <button id="btnMood" class="button is-small is-fullwidth" class="navButton">Mood</button>
-            <button id="btnHealth" class="button is-small is-fullwidth" class="navButton">Overall Health</button>
-            <button id="btnPain" class="button is-small is-fullwidth" class="navButton">Pain</button>
-            <button id="btnSleep" class="button is-small is-fullwidth" class="navButton">Sleep</button>
+        <nav id="customNav" class="navbar-nav d-flex flex-row justify-content-around">
+            <button id="btnMood" class="button is-normal navButton">Mood</button>
+            <button id="btnHealth" class="button is-normal navButton">Overall Health</button>
+            <button id="btnPain" class="button is-normal navButton">Pain</button>
+            <button id="btnSleep" class="button is-normal navButton">Sleep</button>
         </nav>
         <span id="day-display"></span>
     </header>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Modal</button>
-
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="my-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">How are you today?</h5>
+                    <h5 class="modal-title" id="modal-label">How are you today?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     We missed you yesterday! Please fill out yesterday's questionnaire.
                 </div>
                 <div class="modal-footer">
-                    <button type="button"  class="btn btn-primary">Start</button>
+                    <button type="button" class="btn btn-primary">Start</button>
                 </div>
             </div>
         </div>
@@ -57,7 +52,7 @@
 
     <div class="container">
 
-        <aside class="justify-content-start">
+        <aside class="aside col-6">
             <div class="dailySurvey form-check form-check-inline">
                 <ul form-check form-check-inline d-flex flex-row justify-content-center>
 
@@ -102,8 +97,8 @@
                         <input class="form-check-input" type="radio" id="m10" name="mood" value="10">
                     </li>
                     <li>
-                    <button class="button is-small is-fullwidth aside-button moodSBtn">Mood</button>
-                </li>
+                        <button class="button is-medium aside-button moodSBtn">Mood</button>
+                    </li>
                     <br>
                 </ul>
                 <ul form-check form-check-inline d-flex flex-row justify-content-center>
@@ -148,10 +143,9 @@
                         <label for="10">10</label>
                         <input class="form-check-input" type="radio" id="oh10" name="oh" value="10">
                     </li>
-
-<li>
-                    <button class="button is-small is-fullwidth aside-button ohButton ">Health</button>
-</li>
+                    <li>
+                        <button class="button is-medium aside-button ohButton ">Health</button>
+                    </li>
                     <br>
                 </ul>
 
@@ -203,11 +197,9 @@
                     <li class="form-check form-check-inline">
                         <label for="10">10</label>
                         <input class="form-check-input" type="radio" id="p10" name="pain" value="10">
-
                     </li>
-
-<li>
-                    <button class="button is-small is-fullwidth aside-button painButton">Pain</button>
+                    <li>
+                        <button class="button is-medium aside-button painButton">Pain</button>
                     </li>
                     <br>
                 </ul>
@@ -263,8 +255,8 @@
                         <label for="10">10</label>
                         <input class="form-check-input" type="radio" id="s10" name="sleep" value="10">
                     </li>
-<li>
-                    <button class="button is-small is-fullwidth aside-button sleepButton">Sleep</button>
+                    <li>
+                        <button class="button is-medium aside-button sleepButton">Sleep</button>
                     </li>
                 </ul>
                 <br>
@@ -273,51 +265,53 @@
                     <div class="carousel-inner">
 
                         <div class="carousel-item active">
-                            <img class="d-block w-70" src="assets/images/im1.jpeg" alt="Relaxing pictures of nature">
+                            <img class="d-block" src="assets/images/im1.jpeg" alt="Relaxing pictures of nature">
                         </div>
                         <div class="carousel-item">
-                                <img class="d-block w-70" src="assets/images/im19.jpeg" alt="Relaxing pictures of nature">
-                        </div>
-                        
-                        <div class="carousel-item">
-                            <img class="d-block w-70" src="assets/images/im2.webp" alt="Relaxing pictures of nature">
-                        </div>
-                        
-                        <div class="carousel-item">
-                            <img class="d-block w-70" src="assets/images/im3.jpeg" alt="Relaxing pictures of nature">
+                            <img class="d-block w-100" src="assets/images/im19.jpeg" alt="Relaxing pictures of nature">
                         </div>
 
                         <div class="carousel-item">
-                            <img class="d-block w-70" src="assets/images/im8.webp" alt="Relaxing pictures of nature">
+                            <img class="d-block w-100" src="assets/images/im2.webp" alt="Relaxing pictures of nature">
                         </div>
 
                         <div class="carousel-item">
-                            <img class="d-block w-70" src="assets/images/im9.jpeg" alt="Relaxing pictures of nature">
+                            <img class="d-block w-100" src="assets/images/im3.jpeg" alt="Relaxing pictures of nature">
                         </div>
 
                         <div class="carousel-item">
-                            <img class="d-block w-70" src="assets/images/im5.webp" alt="Relaxing pictures of nature">
+                            <img class="d-block w-100" src="assets/images/im8.webp" alt="Relaxing pictures of nature">
                         </div>
 
                         <div class="carousel-item">
-                            <img class="d-block w-70" src="assets/images/im30.jpeg" alt="Relaxing pictures of nature">
+                            <img class="d-block w-100" src="assets/images/im9.jpeg" alt="Relaxing pictures of nature">
                         </div>
-                        
+
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="assets/images/im5.webp" alt="Relaxing pictures of nature">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="assets/images/im30.jpeg" alt="Relaxing pictures of nature">
+                        </div>
+
                     </div>
                 </div>
         </aside>
     </div>
-    <section class=".col-md-4 offset-md-4 health-tip">
+    <main class="main col-6">
+        <section class=".col-md-4 offset-md-4 health-tip">
 
-        <!-- First section content here -->
-    </section>
-    <section class="col-md-4 offset-md-4 section-block quote-day">
-        <!-- Second section content here -->
-    </section>
-    <section class="col-md-8 offset-md-4 section-block chart">
-        <!-- Third section content here -->
-    </section>
+            <!-- First section content here -->
+        </section>
+        <section class="col-md-4 offset-md-4 section-block quote-day">
+            <!-- Second section content here -->
+        </section>
+        <section class="col-md-8 offset-md-4 section-block chart">
+            <!-- Third section content here -->
+        </section>
     </main>
+
     <footer>
 
         <div class="exlinks">
@@ -326,17 +320,15 @@
         </div>
         <article class="message is-small">
             <div class="message-header">
-              <p>IMPORTANT!</p>
+                <p>IMPORTANT!</p>
             </div>
             <div class="message-body">
-             Your Health-esteem tracker is for <strong> tracking purposes only</strong>. It <em>does not</em> replace your primary care provider.</div>
-          </article>
+                Your Health-esteem tracker is for <strong> tracking purposes only</strong>. It <em>does not</em> replace
+                your primary care provider.</div>
+        </article>
     </footer>
-    <script
-    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"
-  ></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="https://api.api-ninjas.com/v1/quotes?category="></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
@@ -347,9 +339,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-        <script src="./assets/health_tip.js"></script>    
+    <script src="./assets/health_tip.js"></script>
     <script src="./assets/script.js"></script>
-   
+
 </body>
 
 </html>
