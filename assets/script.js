@@ -7,6 +7,31 @@ console.log(quoteDay)
 const apiKey = "431/rZ1NcazKVlEfxzCcFA==CPMgiJ8hSmqD6dDe"
 const url = "https://api.api-ninjas.com/v1/quotes?category=inspirational"
 
+var btnMood = document.querySelector('btnMood');
+var btnHealth = document.querySelector('btnHealth');
+var btnPain = document.querySelector("btnPain");
+var btnSleep = document.querySelector("btnSleep");
+
+btnMood.addEventListener('click', function(){
+displayMoodChart()
+
+});
+
+btnHealth.addEventListener('click', function(){
+displayHealthChart()
+
+});
+
+btnPain.addEventListener('click', function(){
+displayPainChart()
+
+});
+
+btnSleep.addEventListener('click', function(){
+displaySleepChart()
+
+});
+
 //add the rest of the const or var that need to be done once JD has finished with entering all of the checkboxes
 
 //add current date to the top of the header using dayjs
