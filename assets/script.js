@@ -3,7 +3,7 @@ var navButton = document.querySelector(".navButton");
 var dailySurvey = document.querySelector(".dailySurvey");
 var sectionBlock = document.querySelector(".sectionBlock");
 var quoteDay = document.querySelector(".quote-day");
-console.log(quoteDay)
+var tipDay = document.querySelector(".health-tip");
 const apiKey = "431/rZ1NcazKVlEfxzCcFA==CPMgiJ8hSmqD6dDe"
 const url = "https://api.api-ninjas.com/v1/quotes?category=inspirational"
 var dayDisplayEl = $('#day-display');
@@ -45,7 +45,6 @@ btnSleep.addEventListener('click', function(){
 
 });
 
-//add the rest of the const or var that need to be done once JD has finished with entering all of the checkboxes
 
 //add current date to the top of the header using dayjs
 
@@ -67,9 +66,6 @@ function displayQuoteOfTheDay() {
         const response = await fetch(urlParam,
             { headers: { 'X-Api-Key': apiKey } });
         var data = await response.json();
-        console.log("hello JD");
-        console.log(data);
-        // return data;
 
 
         const card = document.createElement("div")
@@ -84,19 +80,58 @@ function displayQuoteOfTheDay() {
         console.log("I got to here!")
         h3.append(span)
         cardHeader.append(h3)
-        console.log(data)
         cardBody.append(data[0].quote)
         card.append(cardHeader, cardBody)
         quoteDay.append(card)
-        console.log("and here!")
+        
     }
 
-    var quoteObject = getapi(url);
+  var quoteObject = getapi(url);
 
 }
 displayQuoteOfTheDay()
 
 //function that retreives the health tip of the day from google API and places it in the appropriate "card" (this function should include the building of the card from bootstrap and appending elements)
+
+function displayTipOfTheDay() {
+    tipDay.innerHTML = ""
+
+    function getRandomItem(healthTips) {
+
+        // get random index value
+        const randomIndex = Math.floor(Math.random() * healthTips.length);
+    
+        // get random item
+        const item = healthTips[randomIndex];
+    
+        return item;
+    }
+    
+    const result = getRandomItem(healthTips);
+    console.log(result);
+
+        const card = document.createElement("div")
+        card.setAttribute("class", "card tipOfDay")
+        const cardHeader = document.createElement("div")
+        cardHeader.setAttribute("class", "card-header")
+        const cardBody = document.createElement("div")
+        cardBody.setAttribute("class", "card-body")
+        const span = document.createElement("span")
+        const h3 = document.createElement("h3")
+        h3.textContent = "Tip of the Day"
+        console.log("I got to here!")
+        h3.append(span)
+        cardHeader.append(h3)
+        cardBody.append(result)
+        card.append(cardHeader, cardBody)
+        quoteDay.append(card)
+        console.log("and here!")
+    }
+
+   // var quoteObject = getapi(url);
+
+
+displayTipOfTheDay()
 
 //function that retreives the cumulative array produced earlier and uses it to create a chart - use the API we discussed in the planning session for this -place chart in a card that is created through bootstrap and appending elements
 
