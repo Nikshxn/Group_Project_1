@@ -13,25 +13,21 @@ var btnPain = document.querySelector("btnPain");
 var btnSleep = document.querySelector("btnSleep");
 
 btnMood.addEventListener('click', function(){
-
 displayMoodChart()
 
 });
 
 btnHealth.addEventListener('click', function(){
-
 displayHealthChart()
 
 });
 
 btnPain.addEventListener('click', function(){
-
 displayPainChart()
 
 });
 
 btnSleep.addEventListener('click', function(){
-    
 displaySleepChart()
 
 });
