@@ -6,6 +6,15 @@ var quoteDay = document.querySelector(".quote-day");
 console.log(quoteDay)
 const apiKey = "431/rZ1NcazKVlEfxzCcFA==CPMgiJ8hSmqD6dDe"
 const url = "https://api.api-ninjas.com/v1/quotes?category=inspirational"
+var dayDisplayEl = $('#day-display');
+
+// handle displaying the time
+function displayDay() {
+  var currentDay = dayjs().format('MMM DD, YYYY');
+  dayDisplayEl.text(currentDay);
+}
+
+displayDay();
 
 //add the rest of the const or var that need to be done once JD has finished with entering all of the checkboxes
 
