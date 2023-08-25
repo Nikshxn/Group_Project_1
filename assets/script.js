@@ -7,6 +7,10 @@ var tipDay = document.querySelector(".health-tip");
 const apiKey = "431/rZ1NcazKVlEfxzCcFA==CPMgiJ8hSmqD6dDe"
 const url = "https://api.api-ninjas.com/v1/quotes?category=inspirational"
 var dayDisplayEl = $('#day-display');
+var btnMood = document.querySelector('btnMood');
+var btnHealth = document.querySelector('btnHealth');
+var btnPain = document.querySelector("btnPain");
+var btnSleep = document.querySelector("btnSleep");
 
 // handle displaying the time
 function displayDay() {
@@ -16,37 +20,41 @@ function displayDay() {
 
 displayDay();
 
+
+btnMood.addEventListener('click', function(){
+displayMoodChart()
+
 var btnMood = document.querySelector('btnMood');
 var btnHealth = document.querySelector('btnHealth');
 var btnPain = document.querySelector("btnPain");
 var btnSleep = document.querySelector("btnSleep");
 
-btnMood.addEventListener('click', function(){
-
-    displayMoodChart()
-
 });
 
 btnHealth.addEventListener('click', function(){
-
-    displayHealthChart()
+ feature/btn_listener
+displayHealthChart()
 
 });
 
 btnPain.addEventListener('click', function(){
-
-    displayPainChart()
+ feature/btn_listener
+displayPainChart()
 
 });
 
 btnSleep.addEventListener('click', function(){
+feature/btn_listener
+displaySleepChart()
 
-    displaySleepChart()
+});
+//add the rest of the const or var that need to be done once JD has finished with entering all of the checkboxes
+
 
 });
 
 
-//add current date to the top of the header using dayjs
+
 
 //TODO: prefix on checkboxes because they need to be unique
 //function to recognize what number is checked in each of the categories
