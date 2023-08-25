@@ -7,21 +7,29 @@ var tipDay = document.querySelector(".health-tip");
 const apiKey = "431/rZ1NcazKVlEfxzCcFA==CPMgiJ8hSmqD6dDe"
 const url = "https://api.api-ninjas.com/v1/quotes?category=inspirational"
 var dayDisplayEl = $('#day-display');
-var btnMood = document.querySelector('btnMood');
-var btnHealth = document.querySelector('btnHealth');
-var btnPain = document.querySelector("btnPain");
-var btnSleep = document.querySelector("btnSleep");
+var btnMood = document.querySelector('#btnMood');
+var btnHealth = document.querySelector('#btnHealth');
+var btnPain = document.querySelector("#btnPain");
+var btnSleep = document.querySelector("#btnSleep");
+var moodSurveyBtn = document.querySelector(".moodSBtn");
+var ohSurveyBtn = document.querySelector(".ohButton");
+var painSurveyBtn = document.querySelector(".painButton");
+var sleepSurveyBtn = document.querySelector(".sleepButton");
+var moodArray = [];
+var healthArray =[];
+var painArray = [];
+var sleepArray =[];
 
 // handle displaying the time
 function displayDay() {
-  var currentDay = dayjs().format('MMM DD, YYYY');
-  dayDisplayEl.text(currentDay);
+    var currentDay = dayjs().format('MMM DD, YYYY');
+    dayDisplayEl.text(currentDay);
 }
 
 displayDay();
 
 
-btnMood.addEventListener('click', function(){
+/*btnMood.addEventListener('click', function(){
 displayMoodChart()
 
 var btnMood = document.querySelector('btnMood');
@@ -32,31 +40,86 @@ var btnSleep = document.querySelector("btnSleep");
 });
 
 btnHealth.addEventListener('click', function(){
- feature/btn_listener
-displayHealthChart()
+ displayHealthChart()
 
 });
 
 btnPain.addEventListener('click', function(){
- feature/btn_listener
 displayPainChart()
 
 });
 
 btnSleep.addEventListener('click', function(){
-feature/btn_listener
 displaySleepChart()
 
 });
-//add the rest of the const or var that need to be done once JD has finished with entering all of the checkboxes
+*/
 
+//function that checks input type radio for user input and saves to local storage
 
-});
+function getSelectedRadioMood() {
 
+    console.log("hello")
+    var selectedMood = document.querySelector(
+        'input[name="mood"]:checked');
+    console.log(selectedMood)
+    if (selectedMood) {
+        moodArray.push(selectedMood.value)
+    }
+}
 
+moodSurveyBtn.addEventListener('click', function () {
+    getSelectedRadioMood()
+})
 
+function getSelectedRadioHealth() {
 
-//TODO: prefix on checkboxes because they need to be unique
+    var selectedHealth = document.querySelector(
+        'input[name="oh"]:checked');
+    console.log(selectedHealth)
+    if (selectedHealth) {
+       healthArray.push(selectedHealth.value)
+    }
+}
+
+ohSurveyBtn.addEventListener('click', function () {
+    getSelectedRadioHealth()
+})
+
+function getSelectedRadioPain() {
+
+    var selectedPain = document.querySelector(
+        'input[name="pain"]:checked');
+    console.log(selectedPain)
+    if (selectedPain) {
+       painArray.push(selectedPain.value)
+    }
+}
+painSurveyBtn.addEventListener('click', function () {
+    getSelectedRadioPain()
+})
+
+function getSelectedRadioSleep() {
+
+    
+    var selectedSleep = document.querySelector(
+        'input[name="sleep"]:checked');
+        console.log(selectedSleep)
+    if (selectedSleep) {
+        sleepArray.push(selectedSleep.value)
+    }
+}
+
+sleepSurveyBtn.addEventListener('click', function () {
+    getSelectedRadioSleep()
+})
+
+    function populateStorage() {
+        localStorage.setItem("moodSurvey", JSON.stringify(moodArray));
+        localStorage.setItem("healthSurvey", JSON.stringify(healthArray));
+        localStorage.setItem("painSurvey", JSON.stringify(painArray));
+        localStorage.setItem("sleepSurvey", JSON.stringify(sleepArray));
+      } 
 //function to recognize what number is checked in each of the categories
 
 //function that takes the data and place it in a cumulative array for that category
@@ -91,15 +154,16 @@ function displayQuoteOfTheDay() {
         cardBody.append(data[0].quote)
         card.append(cardHeader, cardBody)
         quoteDay.append(card)
-        
+
     }
 
-  var quoteObject = getapi(url);
+    var quoteObject = getapi(url);
 
 }
+
 displayQuoteOfTheDay()
 
-//function that retreives the health tip of the day from google API and places it in the appropriate "card" (this function should include the building of the card from bootstrap and appending elements)
+/*function that retreives the health tip of the day from google API and places it in the appropriate "card"*/
 
 function displayTipOfTheDay() {
     tipDay.innerHTML = ""
@@ -108,52 +172,37 @@ function displayTipOfTheDay() {
 
         // get random index value
         const randomIndex = Math.floor(Math.random() * healthTips.length);
-    
+
         // get random item
         const item = healthTips[randomIndex];
-    
+
         return item;
     }
-    
+
     const result = getRandomItem(healthTips);
     console.log(result);
 
-        const card = document.createElement("div")
-        card.setAttribute("class", "card tipOfDay")
-        const cardHeader = document.createElement("div")
-        cardHeader.setAttribute("class", "card-header")
-        const cardBody = document.createElement("div")
-        cardBody.setAttribute("class", "card-body")
-        const span = document.createElement("span")
-        const h3 = document.createElement("h3")
-        h3.textContent = "Tip of the Day"
-        console.log("I got to here!")
-        h3.append(span)
-        cardHeader.append(h3)
-        cardBody.append(result)
-        card.append(cardHeader, cardBody)
-        quoteDay.append(card)
-        console.log("and here!")
-    }
+    const card = document.createElement("div")
+    card.setAttribute("class", "card tipOfDay")
+    const cardHeader = document.createElement("div")
+    cardHeader.setAttribute("class", "card-header")
+    const cardBody = document.createElement("div")
+    cardBody.setAttribute("class", "card-body")
+    const span = document.createElement("span")
+    const h3 = document.createElement("h3")
+    h3.textContent = "Tip of the Day"
+    console.log("I got to here!")
+    h3.append(span)
+    cardHeader.append(h3)
+    cardBody.append(result)
+    card.append(cardHeader, cardBody)
+    quoteDay.append(card)
+    console.log("and here!")
+}
 
-   // var quoteObject = getapi(url);
+// var quoteObject = getapi(url);
 
 
-displayTipOfTheDay()
+displayTipOfTheDay();
 
-//function that retreives the cumulative array produced earlier and uses it to create a chart - use the API we discussed in the planning session for this -place chart in a card that is created through bootstrap and appending elements
 
-//function that checks for last date of checkbox entries and gives warning if it was not "yesterday" - then allows user to fill in yesterday and todays numbers
-
-//function that takes the average of the last 7 days and uses it for any day that is not filled in further back then yesterday so that there are numbers for the graph - displays warning that this is what is happening and reminds user to come every calendar day to fill out the chart for best results
-
-//add function to check if in the last 5 days there is any category that is less than 4 for 4 consecutive days if so then prompt user to click resources below and seek help if necessary
-
-//add listener event for mood at top (triggers chart to be updated with new info for mood )
-//add listener event for mood on sidebar (triggers the function that grabs and stores the data for mood)
-//add listener event for overall health at top (triggers chart to be updated with new info for overall health)
-//add listener event for overall health on sidebar(triggers the function that grabs and stores the data for overall health)
-//add listener event for pain at top (triggers chart to be updated with new info for pain)
-//add listener event for pain on sidebar(triggers the function that grabs and stores the data for pain)
-//add listener event for sleep at top (triggers chart to be updated with new info for sleep)
-//add listener event for sleep on sidebar(triggers the function that grabs and stores the data for sleep)
