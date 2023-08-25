@@ -15,10 +15,11 @@ var moodSurveyBtn = document.querySelector(".moodSBtn");
 var ohSurveyBtn = document.querySelector(".ohButton");
 var painSurveyBtn = document.querySelector(".painButton");
 var sleepSurveyBtn = document.querySelector(".sleepButton");
-var moodArray = [];
-var healthArray =[];
-var painArray = [];
-var sleepArray =[];
+
+var moodArray = JSON.parse(localStorage.getItem("moodSurvey")) || [];
+var healthArray =JSON.parse(localStorage.getItem("ohSurvey")) || [];
+var painArray = JSON.parse(localStorage.getItem("painSurvey")) || [];;
+var sleepArray =JSON.parse(localStorage.getItem("sleepSurvey")) || [];
 
 // handle displaying the time
 function displayDay() {
@@ -70,6 +71,7 @@ function getSelectedRadioMood() {
 
 moodSurveyBtn.addEventListener('click', function () {
     getSelectedRadioMood()
+    populateStorage()
 })
 
 function getSelectedRadioHealth() {
@@ -84,6 +86,7 @@ function getSelectedRadioHealth() {
 
 ohSurveyBtn.addEventListener('click', function () {
     getSelectedRadioHealth()
+    populateStorage()
 })
 
 function getSelectedRadioPain() {
@@ -97,6 +100,7 @@ function getSelectedRadioPain() {
 }
 painSurveyBtn.addEventListener('click', function () {
     getSelectedRadioPain()
+    populateStorage()
 })
 
 function getSelectedRadioSleep() {
@@ -112,14 +116,18 @@ function getSelectedRadioSleep() {
 
 sleepSurveyBtn.addEventListener('click', function () {
     getSelectedRadioSleep()
+    populateStorage()
+  
 })
 
     function populateStorage() {
         localStorage.setItem("moodSurvey", JSON.stringify(moodArray));
-        localStorage.setItem("healthSurvey", JSON.stringify(healthArray));
+        localStorage.setItem("healthSurvey",JSON.stringify(healthArray));
         localStorage.setItem("painSurvey", JSON.stringify(painArray));
         localStorage.setItem("sleepSurvey", JSON.stringify(sleepArray));
       } 
+     
+      
 //function to recognize what number is checked in each of the categories
 
 //function that takes the data and place it in a cumulative array for that category
