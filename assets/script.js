@@ -6,6 +6,15 @@ var quoteDay = document.querySelector(".quote-day");
 console.log(quoteDay)
 const apiKey = "431/rZ1NcazKVlEfxzCcFA==CPMgiJ8hSmqD6dDe"
 const url = "https://api.api-ninjas.com/v1/quotes?category=inspirational"
+var dayDisplayEl = $('#day-display');
+
+// handle displaying the time
+function displayDay() {
+  var currentDay = dayjs().format('MMM DD, YYYY');
+  dayDisplayEl.text(currentDay);
+}
+
+displayDay();
 
 var btnMood = document.querySelector('btnMood');
 var btnHealth = document.querySelector('btnHealth');
@@ -104,4 +113,4 @@ displayQuoteOfTheDay()
 //add listener event for pain at top (triggers chart to be updated with new info for pain)
 //add listener event for pain on sidebar(triggers the function that grabs and stores the data for pain)
 //add listener event for sleep at top (triggers chart to be updated with new info for sleep)
-//add listener event for sleep on sidebar(triggers the function that grabs and stores the data for sleep
+//add listener event for sleep on sidebar(triggers the function that grabs and stores the data for sleep)
