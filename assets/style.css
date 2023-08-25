@@ -19,8 +19,21 @@ chart {
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
     border: var(--light);
     background-color: var(--dark);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+#day-display {
+    font-size: 14px;
 }
 
 #carouselSlides {
@@ -33,7 +46,6 @@ header {
     height: 60%;
 
 }
-
 
 .modal {
 
@@ -52,4 +64,40 @@ header {
     border: 2px solid var(--light);
     border-radius: 3px;
     margin-top: 4vh;
+}
+
+.logo-image {
+    max-width: 45%;
+    height: auto;
+    
+}
+
+.logo {
+    flex:0 0 30%;
+}
+
+#customNav {
+    flex:0 0 50%;
+}
+
+#day-display {
+    flex:0 0 20%;
+}
+
+/* Style for the links in the footer */
+.exlinks {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.exlinks a {
+    text-decoration: none;
+    color: var(--dark);
+    margin: 0px 30px;
+    transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+.exlinks a:hover {
+    color: var(--red);
 }

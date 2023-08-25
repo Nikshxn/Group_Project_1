@@ -21,19 +21,17 @@
 <body>
     <header>
         <div class="logo">
-            <figure class="image is-96x96">
+            <figure class="logo-image">
                 <img src="assets/images/health-esteem-logo.png" alt="Health-esteem app logo">
             </figure>
         </div>
-        <nav class="navbar-nav d-flex flex-row">
-
-            <button id="btnMood" class="navButton">Mood</button>
-            <button id="btnHealth" class="navButton">Overall Health</button>
-            <button id="btnPain" class="navButton">Pain</button>
-            <button id="btnSleep" class="navButton">Sleep</button>
-            <span id="day-display"></span>
-
+        <nav id="customNav" class="navbar-nav d-flex flex-row justify-content-center">
+            <button id="btnMood" class="button is-small is-fullwidth" class="navButton">Mood</button>
+            <button id="btnHealth" class="button is-small is-fullwidth" class="navButton">Overall Health</button>
+            <button id="btnPain" class="button is-small is-fullwidth" class="navButton">Pain</button>
+            <button id="btnSleep" class="button is-small is-fullwidth" class="navButton">Sleep</button>
         </nav>
+        <span id="day-display"></span>
     </header>
 
     <!-- Button trigger modal -->
@@ -51,7 +49,7 @@
                     We missed you yesterday! Please fill out yesterday's questionnaire.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Start</button>
+                    <button type="button"  class="btn btn-primary">Start</button>
                 </div>
             </div>
         </div>
@@ -61,8 +59,7 @@
 
         <aside class="justify-content-start">
             <div class="dailySurvey form-check form-check-inline">
-                <ul form-check form-check-inline>
-
+                <ul form-check form-check-inline d-flex flex-row justify-content-center>
 
                     <li class="form-check form-check-inline">
                         <label for="1">1</label>
@@ -104,11 +101,12 @@
                         <label for="10">10</label>
                         <input class="form-check-input" type="radio" id="m10" name="mood" value="10">
                     </li>
-                    <button class="aside-button">Mood</button>
-
+                    <li>
+                    <button class="button is-small is-fullwidth" class="aside-button">Mood</button>
+                </li>
                     <br>
                 </ul>
-                <ul form-check form-check-inline>
+                <ul form-check form-check-inline d-flex flex-row justify-content-center>
 
                     <li class="form-check form-check-inline">
                         <label for="1">1</label>
@@ -150,13 +148,13 @@
                         <label for="10">10</label>
                         <input class="form-check-input" type="radio" id="oh10" name="oh" value="10">
                     </li>
-
-                    <button class="aside-button">Health</button>
-
+<li>
+                    <button class="button is-small is-fullwidth" class="aside-button">Health</button>
+</li>
                     <br>
                 </ul>
 
-                <ul form-check form-check-inline>
+                <ul form-check form-check-inline d-flex flex-row justify-content-center>
 
                     <li class="form-check form-check-inline">
                         <label for="1">1</label>
@@ -206,12 +204,13 @@
                         <input class="form-check-input" type="radio" id="p10" name="pain" value="10">
 
                     </li>
-
-                    <button class="aside-button">Pain</button>
+<li>
+                    <button class="button is-small is-fullwidth" class="aside-button">Pain</button>
+                    </li>
                     <br>
                 </ul>
 
-                <ul form-check form-check-inline>
+                <ul form-check form-check-inline d-flex flex-row justify-content-center>
 
                     <li class="form-check form-check-inline">
                         <label for="1">1</label>
@@ -262,8 +261,9 @@
                         <label for="10">10</label>
                         <input class="form-check-input" type="radio" id="s10" name="sleep" value="10">
                     </li>
-
-                    <button class="aside-button">Sleep</button>
+<li>
+                    <button class="button is-small is-fullwidth" class="aside-button">Sleep</button>
+                    </li>
                 </ul>
                 <br>
 
@@ -319,16 +319,15 @@
     <footer>
 
         <div class="exlinks">
-            <a href="https://cmha.ca/" target=_blank title="This takes you to the CMHA web page.">CMHA</a>
-            <a href="https://www.arealme.com/health/en/" target=_blank title="This takes you to a health quiz">Basic
-                Health Quiz</a>
+            <a href="https://cmha.ca/" target=_blank title="Go to Canadian Mental Health Association page.">CMHA.ca</a>
+            <a href="https://www.arealme.com/health/en/" target=_blank title="Take a health quiz.">Health Quiz</a>
         </div>
         <article class="message is-small">
             <div class="message-header">
               <p>IMPORTANT!</p>
             </div>
             <div class="message-body">
-             Your Health-esteem tracker is for <strong> tracking purposes only</strong>. It <em>does not</em> replace your primary care.</div>
+             Your Health-esteem tracker is for <strong> tracking purposes only</strong>. It <em>does not</em> replace your primary care provider.</div>
           </article>
     </footer>
     <script
