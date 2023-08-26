@@ -9,15 +9,6 @@
 
 }
 
-.health-tip,
-aside,
-quote-day,
-chart {
-    border: 3px solid var(--light);
-    background-color: var(--med);
-    color: black;
-}
-
 header {
     display: flex;
     justify-content: space-between;

@@ -55,9 +55,9 @@
             <p>Your ratings indicate you may want to seek professional consultation regarding your well-being.</p>
         </div>
     </div>
-    <div class="container">
+    <div class="container row">
 
-        <aside class="aside col-6">
+        <aside class="aside col-sm-3 col-md-6 col-lg-4">
             <div class="dailySurvey form-check form-check-inline">
                 <ul form-check form-check-inline d-flex flex-row justify-content-center>
 
@@ -303,19 +303,36 @@
                     </div>
                 </div>
         </aside>
-    </div>
+    
     <main class="main col-6">
-        <section class=".col-md-4 offset-md-4 health-tip">
 
-            <!-- First section content here -->
-        </section>
-        <section class="col-md-4 offset-md-4 section-block quote-day">
-            <!-- Second section content here -->
-        </section>
-        
-        <section class="col-md-8 offset-md-4 section-block chart">
+
+        <section class="card col-sm-9 col-md-6 col-lg-8 section-block chart">
+           <h3 class="card-header">Your Chart</h3>
+           <div class="card-body">
+            
             <canvas id="surveyChart"></canvas>
+        </div>
         </section>
+    
+       <!--Div to group tip and quote into the same row-->
+        <div class="row justify-content-end">
+
+             <!-- Health Tip of the day-->
+            <section class="card col-sm-4 health-tip">
+                <h3 class="card-header">Tip of the Day</h3>
+                <div class="card-body" id="tipContents">...</div>
+            </section>
+
+            <!-- Quote of the day-->
+
+            <section class="card col-sm-4 quote-day">
+                <h3 class="card-header">Quote of the Day</h3>
+                <div class="card-body" id="quoteContents">...</div>
+            </section>
+
+        </div>
+    </div>
     </main>
 
     <footer>

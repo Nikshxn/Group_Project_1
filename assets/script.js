@@ -2,8 +2,8 @@ var asBtn = document.querySelector(".asBtn");
 var navButton = document.querySelector(".navButton");
 var dailySurvey = document.querySelector(".dailySurvey");
 var sectionBlock = document.querySelector(".sectionBlock");
-var quoteDay = document.querySelector(".quote-day");
 var tipDay = document.querySelector(".health-tip");
+var chartMade = document.querySelector(".chart");
 const apiKey = "431/rZ1NcazKVlEfxzCcFA==CPMgiJ8hSmqD6dDe"
 const url = "https://api.api-ninjas.com/v1/quotes?category=inspirational"
 var dayDisplayEl = $('#day-display');
@@ -37,65 +37,16 @@ function displayDay() {
 
 displayDay();
 
-function displaySurveyChart(chartLabel, surveyData) {
-    if (surveyChartJSObj) {
-        surveyChartJSObj.destroy();
-        surveyChartJSObj = null;
-    }
-    var labels = []
-
-    for (var i = 0; i < surveyData.length; i++) {
-        labels.push(i + 1)
-    }
-    console.log(`labels ${labels} values ${surveyData}`)
-    var surveyDataToChart = {
-        labels: labels,
-        datasets: [{
-            label: chartLabel,
-            data: surveyData,
-            fill: false,
-            borderColor: '#548464',
-            tension: 0.1
-        }]
-    };
-
-
-    surveyChartJSObj = new Chart(surveyChart, {
-        type: 'line',
-        data: surveyDataToChart,
-
-    });
-}
-chartBtnMood.addEventListener('click', function () {
-    displaySurveyChart("Mood History", moodArray)
-
-});
-
-chartBtnHealth.addEventListener('click', function () {
-    displaySurveyChart("Overall Health History", healthArray)
-
-});
-
-chartBtnPain.addEventListener('click', function () {
-    displaySurveyChart("Pain History", painArray)
-
-});
-
-chartBtnSleep.addEventListener('click', function () {
-    displaySurveyChart("Sleep History", sleepArray)
-
-});
-
 
 //function that checks input type radio for user input and saves to local storage
 
 function getSelectedRadioMood() {
 
-    console.log("hello")
+
     var selectedMood = document.querySelector(
         'input[name="mood"]:checked');
 
-    console.log(selectedMood)
+
     if (selectedMood) {
         selectedMood.checked = false;
         var selectedRating = parseInt(selectedMood.value);
@@ -113,8 +64,6 @@ function checkSelectedRating(value) {
             warningModal.style.display = "none";
         }
     };
-
-
 }
 
 moodSurveyBtn.addEventListener('click', function () {
@@ -128,7 +77,7 @@ function getSelectedRadioHealth() {
     var selectedHealth = document.querySelector(
         'input[name="oh"]:checked');
 
-    console.log(selectedHealth)
+
     if (selectedHealth) {
         selectedHealth.checked = false;
         var selectedRating = parseInt(selectedHealth.value);
@@ -147,7 +96,7 @@ function getSelectedRadioPain() {
     var selectedPain = document.querySelector(
         'input[name="pain"]:checked');
 
-    console.log(selectedPain)
+
     if (selectedPain) {
         selectedPain.checked = false;
 
@@ -167,7 +116,7 @@ function getSelectedRadioSleep() {
     var selectedSleep = document.querySelector(
         'input[name="sleep"]:checked');
 
-    console.log(`selectedSleep:${selectedSleep}`)
+
     if (selectedSleep) {
         selectedSleep.checked = false;
         var selectedRating = parseInt(selectedSleep.value);
@@ -199,35 +148,21 @@ function populateStorage() {
 // function that retreives the quote of the day from quote API and places it in the appropriate "card" (this function should include the building of the card from bootstrapand appending elements)
 
 function displayQuoteOfTheDay() {
-    quoteDay.innerHTML = ""
-
-
 
     async function getapi(urlParam) {
         const response = await fetch(urlParam,
             { headers: { 'X-Api-Key': apiKey } });
         var data = await response.json();
-
-
-        const card = document.createElement("div")
-        card.setAttribute("class", "card quoteOfDay")
-        const cardHeader = document.createElement("div")
-        cardHeader.setAttribute("class", "card-header")
-        const cardBody = document.createElement("div")
-        cardBody.setAttribute("class", "card-body")
-        const span = document.createElement("span")
-        const h3 = document.createElement("h3")
-        h3.textContent = "Quote of the Day"
-        console.log("I got to here!")
-        h3.append(span)
-        cardHeader.append(h3)
-        cardBody.append(data[0].quote)
-        card.append(cardHeader, cardBody)
-        quoteDay.append(card)
-
+        return data;
     }
 
     var quoteObject = getapi(url);
+    quoteObject.then((quoteResult) => {
+        var quoteContentEl = document.getElementById("quoteContents");
+       quoteContentEl.textContent = quoteResult[0].quote;
+        
+    })
+
 
 }
 
@@ -236,8 +171,7 @@ displayQuoteOfTheDay()
 /*function that retreives the health tip of the day from google API and places it in the appropriate "card"*/
 
 function displayTipOfTheDay() {
-    tipDay.innerHTML = ""
-
+   
     function getRandomItem(healthTips) {
 
         // get random index value
@@ -245,30 +179,64 @@ function displayTipOfTheDay() {
 
         // get random item
         const item = healthTips[randomIndex];
-
         return item;
     }
 
     const result = getRandomItem(healthTips);
-    console.log(result);
-
-    const card = document.createElement("div")
-    card.setAttribute("class", "card tipOfDay")
-    const cardHeader = document.createElement("div")
-    cardHeader.setAttribute("class", "card-header")
-    const cardBody = document.createElement("div")
-    cardBody.setAttribute("class", "card-body")
-    const span = document.createElement("span")
-    const h3 = document.createElement("h3")
-    h3.textContent = "Tip of the Day"
-    console.log("I got to here!")
-    h3.append(span)
-    cardHeader.append(h3)
-    cardBody.append(result)
-    card.append(cardHeader, cardBody)
-    quoteDay.append(card)
-    console.log("and here!")
+    var tipContentEl = document.getElementById("tipContents");
+    tipContentEl.textContent = result;
 }
 
 displayTipOfTheDay();
 
+function displaySurveyChart(chartLabel, surveyData) {
+
+    if (surveyChartJSObj) {
+        surveyChartJSObj.destroy();
+        surveyChartJSObj = null;
+    }
+    var labels = []
+
+    for (var i = 0; i < surveyData.length; i++) {
+        labels.push(i + 1)
+    }
+
+    var surveyDataToChart = {
+        labels: labels,
+        datasets: [{
+            label: chartLabel,
+            data: surveyData,
+            fill: false,
+            borderColor: '#548464',
+            tension: 0.1
+        }]
+    };
+
+
+    surveyChartJSObj = new Chart(surveyChart, {
+        type: 'line',
+        data: surveyDataToChart,
+
+    });
+
+
+}
+chartBtnMood.addEventListener('click', function () {
+    displaySurveyChart("Mood History", moodArray,)
+
+});
+
+chartBtnHealth.addEventListener('click', function () {
+    displaySurveyChart("Overall Health History", healthArray)
+
+});
+
+chartBtnPain.addEventListener('click', function () {
+    displaySurveyChart("Pain History", painArray)
+
+});
+
+chartBtnSleep.addEventListener('click', function () {
+    displaySurveyChart("Sleep History", sleepArray)
+
+});
