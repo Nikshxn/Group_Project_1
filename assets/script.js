@@ -15,6 +15,8 @@ var moodSurveyBtn = document.querySelector(".moodSBtn");
 var ohSurveyBtn = document.querySelector(".ohButton");
 var painSurveyBtn = document.querySelector(".painButton");
 var sleepSurveyBtn = document.querySelector(".sleepButton");
+var warningModal = document.querySelector("#warning-modal");
+var modalCloseBtn = document.querySelector(".close");
 
 var moodArray = JSON.parse(localStorage.getItem("moodSurvey")) || [];
 var healthArray =JSON.parse(localStorage.getItem("ohSurvey")) || [];
@@ -65,13 +67,28 @@ function getSelectedRadioMood() {
         'input[name="mood"]:checked');
     console.log(selectedMood)
     if (selectedMood) {
-        moodArray.push(selectedMood.value)
+        var selectedRating = moodArray.push(parseInt(selectedMood.value)); // parseInt converts the value to an integer
+    checkSelectedRating(selectedRating);
     }
+}
+
+
+function checkSelectedRating(value) {
+    if (value <= 4) {
+        warningModal.style.display = "block";
+        
+        modalCloseBtn.onclick = function () {
+            warningModal.style.display = "none";
+        }
+    };
+
+    //populateStorage(); still working on it
 }
 
 moodSurveyBtn.addEventListener('click', function () {
     getSelectedRadioMood()
     populateStorage()
+    
 })
 
 function getSelectedRadioHealth() {
@@ -80,7 +97,8 @@ function getSelectedRadioHealth() {
         'input[name="oh"]:checked');
     console.log(selectedHealth)
     if (selectedHealth) {
-       healthArray.push(selectedHealth.value)
+       var selectedRating = healthArray.push(parseInt(selectedHealth.value));
+       checkSelectedRating(selectedRating);
     }
 }
 
@@ -95,7 +113,8 @@ function getSelectedRadioPain() {
         'input[name="pain"]:checked');
     console.log(selectedPain)
     if (selectedPain) {
-       painArray.push(selectedPain.value)
+       var selectedRating = painArray.push(parseInt(selectedPain.value));
+       checkSelectedRating(selectedRating);
     }
 }
 painSurveyBtn.addEventListener('click', function () {
@@ -110,7 +129,8 @@ function getSelectedRadioSleep() {
         'input[name="sleep"]:checked');
         console.log(selectedSleep)
     if (selectedSleep) {
-        sleepArray.push(selectedSleep.value)
+        var selectedRating = sleepArray.push(parseInt(selectedSleep.value));
+        checkSelectedRating(selectedRating);
     }
 }
 
@@ -212,5 +232,4 @@ function displayTipOfTheDay() {
 
 
 displayTipOfTheDay();
-
 
