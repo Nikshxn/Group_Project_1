@@ -98,7 +98,8 @@ function getSelectedRadioMood() {
     console.log(selectedMood)
     if (selectedMood) {
         selectedMood.checked = false;
-        var selectedRating = moodArray.push(parseInt(selectedMood.value)); // parseInt converts the value to an integer
+        var selectedRating = parseInt(selectedMood.value);
+        painArray.push(selectedRating);
         checkSelectedRating(selectedRating);
     }
 }
@@ -113,7 +114,7 @@ function checkSelectedRating(value) {
         }
     };
 
-    //populateStorage(); still working on it
+
 }
 
 moodSurveyBtn.addEventListener('click', function () {
@@ -130,7 +131,8 @@ function getSelectedRadioHealth() {
     console.log(selectedHealth)
     if (selectedHealth) {
         selectedHealth.checked = false;
-        var selectedRating = healthArray.push(parseInt(selectedHealth.value));
+        var selectedRating = parseInt(selectedHealth.value);
+        painArray.push(selectedRating);
         checkSelectedRating(selectedRating);
     }
 }
@@ -148,8 +150,10 @@ function getSelectedRadioPain() {
     console.log(selectedPain)
     if (selectedPain) {
         selectedPain.checked = false;
-        var selectedRating = painArray.push(parseInt(selectedPain.value));
-        checkSelectedRating(selectedRating);
+
+        var selectedRating = parseInt(selectedPain.value);
+        painArray.push(selectedRating);
+        checkSelectedRating(10 - selectedRating);
     }
 }
 painSurveyBtn.addEventListener('click', function () {
@@ -166,9 +170,9 @@ function getSelectedRadioSleep() {
     console.log(`selectedSleep:${selectedSleep}`)
     if (selectedSleep) {
         selectedSleep.checked = false;
-        var selectedRating = sleepArray.push(parseInt(selectedSleep.value));
+        var selectedRating = parseInt(selectedSleep.value);
+        painArray.push(selectedRating);
         checkSelectedRating(selectedRating);
-        console.log(`newArray: ${sleepArray}`)
     }
 }
 
