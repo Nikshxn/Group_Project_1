@@ -17,11 +17,17 @@ var painSurveyBtn = document.querySelector(".painButton");
 var sleepSurveyBtn = document.querySelector(".sleepButton");
 var warningModal = document.querySelector("#warning-modal");
 var modalCloseBtn = document.querySelector(".close");
+var surveyChart = document.querySelector("#surveyChart");
+var chartBtnMood = document.querySelector("#chartBtnMood");
+var chartBtnHealth = document.querySelector("#chartBtnHealth");
+var chartBtnPain = document.querySelector("#chartBtnPain");
+var chartBtnSleep = document.querySelector("#chartBtnSleep");
+var surveyChartJSObj = null;
 
 var moodArray = JSON.parse(localStorage.getItem("moodSurvey")) || [];
-var healthArray =JSON.parse(localStorage.getItem("ohSurvey")) || [];
+var healthArray = JSON.parse(localStorage.getItem("healthSurvey")) || [];
 var painArray = JSON.parse(localStorage.getItem("painSurvey")) || [];;
-var sleepArray =JSON.parse(localStorage.getItem("sleepSurvey")) || [];
+var sleepArray = JSON.parse(localStorage.getItem("sleepSurvey")) || [];
 
 // handle displaying the time
 function displayDay() {
@@ -31,32 +37,55 @@ function displayDay() {
 
 displayDay();
 
+function displaySurveyChart(chartLabel, surveyData) {
+    if (surveyChartJSObj) {
+        surveyChartJSObj.destroy();
+        surveyChartJSObj = null;
+    }
+    var labels = []
 
-/*btnMood.addEventListener('click', function(){
-displayMoodChart()
+    for (var i = 0; i < surveyData.length; i++) {
+        labels.push(i + 1)
+    }
+    console.log(`labels ${labels} values ${surveyData}`)
+    var surveyDataToChart = {
+        labels: labels,
+        datasets: [{
+            label: chartLabel,
+            data: surveyData,
+            fill: false,
+            borderColor: '#548464',
+            tension: 0.1
+        }]
+    };
 
-var btnMood = document.querySelector('btnMood');
-var btnHealth = document.querySelector('btnHealth');
-var btnPain = document.querySelector("btnPain");
-var btnSleep = document.querySelector("btnSleep");
+
+    surveyChartJSObj = new Chart(surveyChart, {
+        type: 'line',
+        data: surveyDataToChart,
+
+    });
+}
+chartBtnMood.addEventListener('click', function () {
+    displaySurveyChart("Mood History", moodArray)
 
 });
 
-btnHealth.addEventListener('click', function(){
- displayHealthChart()
+chartBtnHealth.addEventListener('click', function () {
+    displaySurveyChart("Overall Health History", healthArray)
 
 });
 
-btnPain.addEventListener('click', function(){
-displayPainChart()
+chartBtnPain.addEventListener('click', function () {
+    displaySurveyChart("Pain History", painArray)
 
 });
 
-btnSleep.addEventListener('click', function(){
-displaySleepChart()
+chartBtnSleep.addEventListener('click', function () {
+    displaySurveyChart("Sleep History", sleepArray)
 
 });
-*/
+
 
 //function that checks input type radio for user input and saves to local storage
 
@@ -65,10 +94,12 @@ function getSelectedRadioMood() {
     console.log("hello")
     var selectedMood = document.querySelector(
         'input[name="mood"]:checked');
+
     console.log(selectedMood)
     if (selectedMood) {
+        selectedMood.checked = false;
         var selectedRating = moodArray.push(parseInt(selectedMood.value)); // parseInt converts the value to an integer
-    checkSelectedRating(selectedRating);
+        checkSelectedRating(selectedRating);
     }
 }
 
@@ -76,7 +107,7 @@ function getSelectedRadioMood() {
 function checkSelectedRating(value) {
     if (value <= 4) {
         warningModal.style.display = "block";
-        
+
         modalCloseBtn.onclick = function () {
             warningModal.style.display = "none";
         }
@@ -88,17 +119,19 @@ function checkSelectedRating(value) {
 moodSurveyBtn.addEventListener('click', function () {
     getSelectedRadioMood()
     populateStorage()
-    
+
 })
 
 function getSelectedRadioHealth() {
 
     var selectedHealth = document.querySelector(
         'input[name="oh"]:checked');
+
     console.log(selectedHealth)
     if (selectedHealth) {
-       var selectedRating = healthArray.push(parseInt(selectedHealth.value));
-       checkSelectedRating(selectedRating);
+        selectedHealth.checked = false;
+        var selectedRating = healthArray.push(parseInt(selectedHealth.value));
+        checkSelectedRating(selectedRating);
     }
 }
 
@@ -111,10 +144,12 @@ function getSelectedRadioPain() {
 
     var selectedPain = document.querySelector(
         'input[name="pain"]:checked');
+
     console.log(selectedPain)
     if (selectedPain) {
-       var selectedRating = painArray.push(parseInt(selectedPain.value));
-       checkSelectedRating(selectedRating);
+        selectedPain.checked = false;
+        var selectedRating = painArray.push(parseInt(selectedPain.value));
+        checkSelectedRating(selectedRating);
     }
 }
 painSurveyBtn.addEventListener('click', function () {
@@ -124,30 +159,33 @@ painSurveyBtn.addEventListener('click', function () {
 
 function getSelectedRadioSleep() {
 
-    
+
     var selectedSleep = document.querySelector(
         'input[name="sleep"]:checked');
-        console.log(selectedSleep)
+
+    console.log(`selectedSleep:${selectedSleep}`)
     if (selectedSleep) {
+        selectedSleep.checked = false;
         var selectedRating = sleepArray.push(parseInt(selectedSleep.value));
         checkSelectedRating(selectedRating);
+        console.log(`newArray: ${sleepArray}`)
     }
 }
 
 sleepSurveyBtn.addEventListener('click', function () {
     getSelectedRadioSleep()
     populateStorage()
-  
+
 })
 
-    function populateStorage() {
-        localStorage.setItem("moodSurvey", JSON.stringify(moodArray));
-        localStorage.setItem("healthSurvey",JSON.stringify(healthArray));
-        localStorage.setItem("painSurvey", JSON.stringify(painArray));
-        localStorage.setItem("sleepSurvey", JSON.stringify(sleepArray));
-      } 
-     
-      
+function populateStorage() {
+    localStorage.setItem("moodSurvey", JSON.stringify(moodArray));
+    localStorage.setItem("healthSurvey", JSON.stringify(healthArray));
+    localStorage.setItem("painSurvey", JSON.stringify(painArray));
+    localStorage.setItem("sleepSurvey", JSON.stringify(sleepArray));
+}
+
+
 //function to recognize what number is checked in each of the categories
 
 //function that takes the data and place it in a cumulative array for that category
@@ -227,9 +265,6 @@ function displayTipOfTheDay() {
     quoteDay.append(card)
     console.log("and here!")
 }
-
-// var quoteObject = getapi(url);
-
 
 displayTipOfTheDay();
 
