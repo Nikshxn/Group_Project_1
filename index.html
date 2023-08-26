@@ -32,7 +32,7 @@
         <span id="day-display"></span>
     </header>
 
-    <!-- Modal -->
+    <!-- Modal missed a day-->
     <div class="modal fade" id="my-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -49,10 +49,20 @@
             </div>
         </div>
     </div>
-    <div id="warning-modal" class="warning-modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Your ratings have been very low for a few days in a row. Please seek professional consultation regarding your well-being.</p>
+    <!--Warning modal-->
+    <div id="warning-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-label">Attention!</h5>
+                    <button class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Your ratings have been very low for a few days in a row. Please consider seeking professional consultation regarding your well-being.
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
         </div>
     </div>
     <div class="container">
