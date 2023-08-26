@@ -22,14 +22,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10px;
+    padding: 0px 10px;
     border: var(--light);
     background-color: var(--dark);
 }
 
 .nav-buttons {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
 #day-display {
@@ -42,13 +42,12 @@ header {
 
 .carousel-image {
 
-    width: 60%;
-    height: 60%;
-
+    max-width: 200%;   /* Set the width to 100% to fill the container */
+    max-height: 200%;
 }
 
-.modal {
 
+.modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -58,8 +57,8 @@ header {
     align-items: center;
 }
 .aside-button{
-    width: 100px;
-    height: 35px;
+   
+    height: 38px;
     background-color: var(--med);
     border: 2px solid var(--light);
     border-radius: 3px;
@@ -67,21 +66,24 @@ header {
 }
 
 .logo-image {
-    max-width: 45%;
+    max-width: 30%;
     height: auto;
-    
+    flex:0 0 28%;
 }
 
-.logo {
-    flex:0 0 30%;
+img {
+    max-width: 50%;
 }
 
 #customNav {
-    flex:0 0 50%;
+    flex:0 0 62%;
 }
 
 #day-display {
-    flex:0 0 20%;
+    flex:0 0 10%;
+    margin: 10px;
+    text-transform: uppercase;
+    color: white;
 }
 
 /* Style for the links in the footer */
@@ -102,6 +104,33 @@ header {
     color: var(--red);
 }
 
+
+.aside {
+    float: left;
+    margin-top: 20px;
+    margin-left: 0px;
+}
+
+.main {
+    float:right;
+}
+
+footer{
+    clear: both;
+}
+
+.container .aside-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--dark);
+}
+
+.carousel-inner img {
+    width: 80vw;
+    height: 60vh;
+  }
+
 #warning-modal {
     display: none;
     position: fixed;
@@ -112,3 +141,4 @@ header {
     justify-content: center;
     align-items: center;
 }
+
