@@ -24,10 +24,10 @@
             <img src="assets/images/health-esteem-logo.png" alt="Health-esteem app logo">
         </div>
         <nav id="customNav" class="navbar-nav d-flex flex-row justify-content-around">
-            <button id="btnMood" class="button is-normal navButton">Mood</button>
-            <button id="btnHealth" class="button is-normal navButton">Overall Health</button>
-            <button id="btnPain" class="button is-normal navButton">Pain</button>
-            <button id="btnSleep" class="button is-normal navButton">Sleep</button>
+            <button id="chartBtnMood" class="button is-normal navButton">Mood</button>
+            <button id="cahrtBtnHealth" class="button is-normal navButton">Overall Health</button>
+            <button id="chartBtnPain" class="button is-normal navButton">Pain</button>
+            <button id="chartBtnSleep" class="button is-normal navButton">Sleep</button>
         </nav>
         <span id="day-display"></span>
     </header>
@@ -312,8 +312,9 @@
         <section class="col-md-4 offset-md-4 section-block quote-day">
             <!-- Second section content here -->
         </section>
+        
         <section class="col-md-8 offset-md-4 section-block chart">
-            <!-- Third section content here -->
+            <canvas id="surveyChart"></canvas>
         </section>
     </main>
 
@@ -346,6 +347,8 @@
         crossorigin="anonymous"></script>
     <script src="./assets/health_tip.js"></script>
     <script src="./assets/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </body>
 

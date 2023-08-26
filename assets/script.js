@@ -17,6 +17,12 @@ var painSurveyBtn = document.querySelector(".painButton");
 var sleepSurveyBtn = document.querySelector(".sleepButton");
 var warningModal = document.querySelector("#warning-modal");
 var modalCloseBtn = document.querySelector(".close");
+var surveyChart = document.querySelector("#surveyChart");
+var chartBtnMood = document.querySelector("#chartBtnMood");
+var chartBtnHealth = document.querySelector("#chartBtnHealth");
+var chartBtnPain = document.querySelector("#chartBtnPain");
+var chartBtnSleep = document.querySelector("#chartBtnSleep");
+var surveyChartJSObj = null;
 
 var moodArray = JSON.parse(localStorage.getItem("moodSurvey")) || [];
 var healthArray =JSON.parse(localStorage.getItem("ohSurvey")) || [];
@@ -31,28 +37,50 @@ function displayDay() {
 
 displayDay();
 
+function displayMoodChart(){
+    if (surveyChartJSObj){
+        surveyChartJSObj.destroy();
+        surveyChartJSObj=null;
+    }
+    var labels = []
 
-/*btnMood.addEventListener('click', function(){
+    for (var i = 0; i< moodArray.length ;i++){
+        labels.push (i+1)
+    }
+    var surveyDataToChart = {
+    labels: labels,
+    datasets: [{
+      label: 'Mood History',
+      data: moodArray,
+      fill: false,
+      borderColor: '#548464',
+      tension: 0.1
+    }]
+  };
+
+    
+    surveyChartJSObj = new Chart(surveyChart, {
+        type: 'line',
+        data: surveyDataToChart,
+
+      });
+}
+chartBtnMood.addEventListener('click', function(){
 displayMoodChart()
 
-var btnMood = document.querySelector('btnMood');
-var btnHealth = document.querySelector('btnHealth');
-var btnPain = document.querySelector("btnPain");
-var btnSleep = document.querySelector("btnSleep");
-
 });
-
-btnHealth.addEventListener('click', function(){
+/*
+chartBtnHealth.addEventListener('click', function(){
  displayHealthChart()
 
 });
 
-btnPain.addEventListener('click', function(){
+chartBtnPain.addEventListener('click', function(){
 displayPainChart()
 
 });
 
-btnSleep.addEventListener('click', function(){
+chartBtnSleep.addEventListener('click', function(){
 displaySleepChart()
 
 });
@@ -227,9 +255,6 @@ function displayTipOfTheDay() {
     quoteDay.append(card)
     console.log("and here!")
 }
-
-// var quoteObject = getapi(url);
-
 
 displayTipOfTheDay();
 
