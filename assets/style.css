@@ -1,3 +1,4 @@
+/* Custom color variables */
 :root {
     --dark: #548464;
     --med1: #8ead9a;
@@ -5,10 +6,14 @@
     --light: #d7e2db;
     --blue: #7bd9f8;
     --red: #9c2412;
-
-
 }
 
+/* Styling for body background */
+body {
+    background-color: var(--light);
+}
+
+/* Styling for the header section */
 header {
     display: flex;
     justify-content: space-between;
@@ -18,15 +23,18 @@ header {
     background-color: var(--dark);
 }
 
+/* Styling for navigation and nav buttons */
+#customNav {
+    flex:0 0 62%;
+}
+
 .nav-buttons {
     display: flex;
     justify-content: space-between;
     color: var(--dark);
 }
 
-#day-display {
-    font-size: 14px;
-}
+
 
 /* Styling for carousel slides */
 .carousel-inner .carousel-item img {
@@ -53,6 +61,9 @@ header {
     margin-top: 4vh;
 }
 
+
+/* Styling for logo image */
+
 .logo-image {
     max-width: 30%;
     height: auto;
@@ -60,60 +71,28 @@ header {
 }
 
 
-#customNav {
-    flex:0 0 62%;
-}
+/* Styling for day display element */
 
 #day-display {
     flex:0 0 10%;
     margin: 10px;
     text-transform: uppercase;
     color: white;
+    font-size: 14px;
 }
 
-/* Style for the links in the footer */
-.exlinks {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.exlinks a {
-    text-decoration: none;
-    color: var(--dark);
-    margin: 0px 30px;
-    transition: color 0.3s ease-in-out; /* Smooth color transition */
-}
-
-.exlinks a:hover {
-    color: var(--red);
-}
-
-ul[title] {
-    font-size: 18px;
-}
-
-.aside {
-    float: left;
-    margin-top: 20px;
-    margin-left: 0px;
-}
-
-.main {
-    float:right;
-}
-
-footer{
-    clear: both;
-}
-
-.container .aside-button {
-    color: var(--light);
+/* Styling for missed day modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    text-align: center;
-    background-color: var(--dark);
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Styling for the warning modal and modal content */
 #warning-modal {
     display: none;
     position: fixed;
@@ -131,19 +110,78 @@ footer{
     color: var(--red);
 }
 
+/* Styling for the aside section and aside buttons */
+.aside {
+    float: left;
+    margin-top: 20px;
+    margin-left: 0px;
+}
+
+.container .aside-button {
+    color: var(--light);
+    width: 100%;
+    text-align: center;
+    background-color: var(--dark);
+    height: 35px;
+}
+
+
+/* Styling for carousel slides */
+#carouselSlides {
+    max-height: 400px;
+}
+
+/* Styling for carousel images */
+.carousel-image {
+
+    max-width: 200%;
+    max-height: 200%;
+
+}
+
+img {
+    max-width: 50%;
+}
+
+/* Styling for the main section */
+.main {
+    float: right;
+}
+
 /* Radio input custom colour */
 .form-check-input[type="radio"]:checked {
    background-color: var(--med2);
 }
 
-.message-header {
-    background-color: var(--red);
-}
-
-body {
-    background-color: var(--light);
-}
-
+/* Styling for card headers */
 .card-header {
     color: var(--med2)
+}
+
+/* Style for the links in the footer */
+.exlinks {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.exlinks a {
+    text-decoration: none;
+    color: var(--dark);
+    margin: 0px 30px;
+    transition: color 0.3s ease-in-out;
+}
+
+.exlinks a:hover {
+    color: var(--red);
+}
+
+/* Styling for the footer */
+footer{
+    clear: both;
+}
+
+/* Styling for message header */
+.message-header {
+    background-color: var(--red);
 }
