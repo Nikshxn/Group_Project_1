@@ -69,7 +69,7 @@
     </div>
     <div class="container row">
 
-        <aside class="aside col-sm-3 col-md-6 col-lg-4">
+        <aside class="aside col-sm-5 col-md-6 col-lg-4 mt-6">
             <div class="dailySurvey form-check form-check-inline">
                 <ul title="1 is for feeling very blue -> 10 is for feeling wonderful!"form-check form-check-inline d-flex flex-row justify-content-center>
 
@@ -316,35 +316,40 @@
                 </div>
         </aside>
     
-    <main class="main col-6">
+        <main class="main col-sm-7 col-md-6 col-lg-8 mt-6">
 
 
         <section class="card col-sm-9 col-md-6 col-lg-8 section-block chart">
            <h3 class="card-header justify-content-center">Your Chart</h3>
+
            <div class="card-body">
-            
             <canvas id="surveyChart"></canvas>
         </div>
         </section>
     
        <!--Div to group tip and quote into the same row-->
-        <div class="row justify-content-end">
+        <div class="row justify-content-around mt-6">
 
              <!-- Health Tip of the day-->
+
             <section class="card col-sm-4 health-tip">
                 <h3 class="card-header justify-content-center">Tip of the Day</h3>
+
                 <div class="card-body" id="tipContents">...</div>
             </section>
 
             <!-- Quote of the day-->
+
             <section class="card col-sm-4 quote-day">
                 <h3 class="card-header justify-content-center">Quote of the Day</h3>
+
                 <div class="card-body" id="quoteContents">...</div>
             </section>
 
         </div>
+        </main>
     </div>
-    </main>
+   
 
     <footer>
 
