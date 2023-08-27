@@ -153,10 +153,7 @@ img {
    background-color: var(--med2);
 }
 
-/* Styling for card headers */
-.card-header {
-    color: var(--med2)
-}
+
 
 /* Style for the links in the footer */
 .exlinks {
@@ -165,15 +162,20 @@ img {
     margin-top: 20px;
 }
 
+/*Style for card headers and body*/
 
 .card-header {
     background-color: var(--dark);
     color: var(--light);
 }
-
-.card-body {
+.chartBkGr{
+    background-color: var(--light);
+}
+#tipContents, #quoteContents {
     background-color: var(--med1);
     color: black;
+}
+
 
 .exlinks a {
     text-decoration: none;
@@ -194,5 +196,4 @@ footer{
 /* Styling for message header */
 .message-header {
     background-color: var(--red);
-
 }
