@@ -1,3 +1,4 @@
+// Array of health tips for health-tip card
 var healthTips= [
 
     "Start your day with a glass of water.", 

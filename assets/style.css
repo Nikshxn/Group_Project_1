@@ -157,5 +157,11 @@ body {
 }
 
 .card-header {
-    color: var(--med2)
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.card-body {
+    background-color: var(--med1);
+    color: black;
 }
