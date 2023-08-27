@@ -39,11 +39,14 @@ Health Tracking
 
 ## Technologies Used
 
-1. Bootstrap - for column alignment
-2. Bulma - for the image carousel
-3. DayJs - for the current day displayed
-4. ChartJS - for all the charts that are created
-5. Ninja API - for the quote of the day
+1. HTML - structure of the page
+2. CSS - visual appearance of the app, providing layout design, color schemes 
+3. JavaScript - interactivity and dynamic features 
+4. Bootstrap - for column alignment, image carousel
+5. Bulma - for the image carousel, footer message, modals, buttons
+6. DayJs - for the current day displayed
+7. ChartJS - for all the charts that are created
+8. Ninja API - for the quote of the day
 
 ## Potential Development
 
@@ -60,7 +63,9 @@ HealthTracker was made possible through the collaborative efforts of a dedicated
 
 ## Screenshot 
 
-
+![screenshot](/assets/images/screenshot1.png)
+![screenshot](/assets/images/screenshot2.png)
+![screenshot](/assets/images/screenshot3.png)
 
 ## Link to Deployed Page
 
