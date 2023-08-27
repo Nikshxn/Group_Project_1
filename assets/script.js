@@ -30,7 +30,7 @@ var healthArray = JSON.parse(localStorage.getItem("healthSurvey")) || [];
 var painArray = JSON.parse(localStorage.getItem("painSurvey")) || [];;
 var sleepArray = JSON.parse(localStorage.getItem("sleepSurvey")) || [];
 
-// handle displaying the time
+//displaying the time
 function displayDay() {
     var currentDay = dayjs().format('MMM DD, YYYY');
     dayDisplayEl.text(currentDay);
@@ -39,7 +39,7 @@ function displayDay() {
 displayDay();
 
 
-// Function that checks input type radio for user input and saves to an array
+// Function that checks <input type radio> for user input and saves to an array
 function getSelectedRadioMood() {
 
 
@@ -55,7 +55,7 @@ function getSelectedRadioMood() {
     }
 }
 
-// Function to show a warning modal if selected rating is less than or equal to 4
+// Function to show a warning modal if selected rating is problematic for 4 entries in a row
 function checkSelectedRating(value) {
     if (value <= 4) {
         warningModal.style.display = "block";
@@ -168,7 +168,7 @@ function displayQuoteOfTheDay() {
 
 displayQuoteOfTheDay()
 
-// function that retreives the health tip of the day from google API and places it in the appropriate "card"*/
+// function that retreives the health tip of the day from health_tip.js (our own file) and places it in the appropriate "card"
 
 function displayTipOfTheDay() {
    
@@ -223,7 +223,7 @@ function displaySurveyChart(chartLabel, surveyData) {
 
 }
 
-// Button event listeners
+// Button event listeners that trigger the chart to be shown in the your chart area
 chartBtnMood.addEventListener('click', function () {
     displaySurveyChart("Mood History", moodArray,)
 
