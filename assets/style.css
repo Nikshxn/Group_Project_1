@@ -35,11 +35,8 @@ header {
 }
 
 
-
-/* Styling for carousel slides */
-.carousel-inner .carousel-item img {
-    height: 400px;
-    width: auto; /* Maintain aspect ratio */
+.carousel-item{
+    margin-left: 90px;
 }
 
 
@@ -123,20 +120,6 @@ header {
     text-align: center;
     background-color: var(--dark);
     height: 35px;
-}
-
-
-/* Styling for carousel slides */
-#carouselSlides {
-    max-height: 400px;
-}
-
-/* Styling for carousel images */
-.carousel-image {
-
-    max-width: 200%;
-    max-height: 200%;
-
 }
 
 img {
