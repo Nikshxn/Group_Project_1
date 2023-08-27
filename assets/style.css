@@ -21,6 +21,7 @@ header {
 .nav-buttons {
     display: flex;
     justify-content: space-between;
+    color: var(--dark);
 }
 
 #day-display {
@@ -95,6 +96,9 @@ img {
     color: var(--red);
 }
 
+ul[title] {
+    font-size: 18px;
+}
 
 .aside {
     float: left;
@@ -111,7 +115,7 @@ footer{
 }
 
 .container .aside-button {
-    display: block;
+    color: var(--light);
     width: 100%;
     text-align: center;
     background-color: var(--dark);
@@ -137,4 +141,21 @@ footer{
 .modal-content {
     background-color: var(--med2);
     color: var(--red);
+}
+
+/* Radio input custom colour */
+.form-check-input[type="radio"]:checked {
+   background-color: var(--med2);
+}
+
+.message-header {
+    background-color: var(--red);
+}
+
+body {
+    background-color: var(--light);
+}
+
+.card-header {
+    color: var(--med2)
 }
