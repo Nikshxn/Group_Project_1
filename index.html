@@ -59,7 +59,7 @@
                     <button class="close" data-bs-dismiss="modal" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
-                    Your ratings have been very low for a few days in a row. Please consider seeking professional consultation regarding your well-being.
+                    It seems that your rating is very low. Please consider seeking professional consultation regarding your well-being.
                 </div>
                 <div class="modal-footer">
                 </div>
@@ -319,8 +319,9 @@
         <main class="main col-sm-7 col-md-6 col-lg-8 mt-6">
 
 
-        <section class="card section-block chart">
-           <h3 class="card-header">Your Chart</h3>
+        <section class="card col-sm-9 col-md-6 col-lg-8 section-block chart">
+           <h3 class="card-header justify-content-center">Your Chart</h3>
+
            <div class="card-body">
             <canvas id="surveyChart"></canvas>
         </div>
@@ -330,14 +331,19 @@
         <div class="row justify-content-around mt-6">
 
              <!-- Health Tip of the day-->
-            <section class="card col-sm-12 col-md-5 mt-2 health-tip">
-                <h3 class="card-header">Tip of the Day</h3>
+
+            <section class="card col-sm-4 health-tip">
+                <h3 class="card-header justify-content-center">Tip of the Day</h3>
+
                 <div class="card-body" id="tipContents">...</div>
             </section>
 
             <!-- Quote of the day-->
-            <section class="card col-sm-12 col-md-5 mt-2 quote-day">
-                <h3 class="card-header">Quote of the Day</h3>
+
+
+            <section class="card col-sm-4 quote-day">
+                <h3 class="card-header justify-content-center">Quote of the Day</h3>
+
                 <div class="card-body" id="quoteContents">...</div>
             </section>
 
