@@ -24,6 +24,7 @@ var chartBtnPain = document.querySelector("#chartBtnPain");
 var chartBtnSleep = document.querySelector("#chartBtnSleep");
 var surveyChartJSObj = null;
 
+// Arrays to store survey data
 var moodArray = JSON.parse(localStorage.getItem("moodSurvey")) || [];
 var healthArray = JSON.parse(localStorage.getItem("healthSurvey")) || [];
 var painArray = JSON.parse(localStorage.getItem("painSurvey")) || [];;
@@ -38,8 +39,7 @@ function displayDay() {
 displayDay();
 
 
-//function that checks input type radio for user input and saves to local storage
-
+// Function that checks input type radio for user input and saves to an array
 function getSelectedRadioMood() {
 
 
@@ -55,7 +55,7 @@ function getSelectedRadioMood() {
     }
 }
 
-
+// Function to show a warning modal if selected rating is less than or equal to 4
 function checkSelectedRating(value) {
     if (value <= 4) {
         warningModal.style.display = "block";
@@ -66,12 +66,14 @@ function checkSelectedRating(value) {
     };
 }
 
+// Attach event listener to mood survey button
 moodSurveyBtn.addEventListener('click', function () {
     getSelectedRadioMood()
     populateStorage()
 
 })
 
+// Function to handle selected health radio input and save to an array
 function getSelectedRadioHealth() {
 
     var selectedHealth = document.querySelector(
@@ -86,11 +88,13 @@ function getSelectedRadioHealth() {
     }
 }
 
+// Attach event listener to overall health survey button
 ohSurveyBtn.addEventListener('click', function () {
     getSelectedRadioHealth()
     populateStorage()
 })
 
+// Function to handle selected pain radio input and save to an array
 function getSelectedRadioPain() {
 
     var selectedPain = document.querySelector(
@@ -105,11 +109,13 @@ function getSelectedRadioPain() {
         checkSelectedRating(10 - selectedRating);
     }
 }
+// Attach event listener to pain survey button
 painSurveyBtn.addEventListener('click', function () {
     getSelectedRadioPain()
     populateStorage()
 })
 
+// Function to handle selected sleep radio input and save to an array
 function getSelectedRadioSleep() {
 
 
@@ -125,12 +131,14 @@ function getSelectedRadioSleep() {
     }
 }
 
+// Attach event listener to sleep survey button
 sleepSurveyBtn.addEventListener('click', function () {
     getSelectedRadioSleep()
     populateStorage()
 
 })
 
+// Function to store survey data in local storage
 function populateStorage() {
     localStorage.setItem("moodSurvey", JSON.stringify(moodArray));
     localStorage.setItem("healthSurvey", JSON.stringify(healthArray));
@@ -138,15 +146,7 @@ function populateStorage() {
     localStorage.setItem("sleepSurvey", JSON.stringify(sleepArray));
 }
 
-
-//function to recognize what number is checked in each of the categories
-
-//function that takes the data and place it in a cumulative array for that category
-//and stores the array in local storage
-
-
-// function that retreives the quote of the day from quote API and places it in the appropriate "card" (this function should include the building of the card from bootstrapand appending elements)
-
+// function that retreives the quote of the day from quote API and places it in the appropriate "card"
 function displayQuoteOfTheDay() {
 
     async function getapi(urlParam) {
@@ -168,7 +168,7 @@ function displayQuoteOfTheDay() {
 
 displayQuoteOfTheDay()
 
-/*function that retreives the health tip of the day from google API and places it in the appropriate "card"*/
+// function that retreives the health tip of the day from google API and places it in the appropriate "card"*/
 
 function displayTipOfTheDay() {
    
@@ -189,6 +189,7 @@ function displayTipOfTheDay() {
 
 displayTipOfTheDay();
 
+// Function to display survey chart
 function displaySurveyChart(chartLabel, surveyData) {
 
     if (surveyChartJSObj) {
@@ -221,6 +222,8 @@ function displaySurveyChart(chartLabel, surveyData) {
 
 
 }
+
+// Button event listeners
 chartBtnMood.addEventListener('click', function () {
     displaySurveyChart("Mood History", moodArray,)
 

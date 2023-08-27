@@ -165,6 +165,16 @@ img {
     margin-top: 20px;
 }
 
+
+.card-header {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.card-body {
+    background-color: var(--med1);
+    color: black;
+
 .exlinks a {
     text-decoration: none;
     color: var(--dark);
@@ -184,4 +194,5 @@ footer{
 /* Styling for message header */
 .message-header {
     background-color: var(--red);
+
 }
