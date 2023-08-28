@@ -39,8 +39,8 @@ Health Tracking
 
 ## Technologies Used
 
-1. HTML - structure of the page
-2. CSS - visual appearance of the app, providing layout design, color schemes 
+1. HTML - the structure of the page
+2. CSS - the visual appearance of the app, providing layout design, color schemes 
 3. JavaScript - interactivity and dynamic features 
 4. Bootstrap - for column alignment, image carousel
 5. Bulma - for the image carousel, footer message, modals, buttons
@@ -69,7 +69,7 @@ HealthTracker was made possible through the collaborative efforts of a dedicated
 
 ## Link to Deployed Page
 
-
+https://jd2929.github.io/Health_Esteem/
 
 ## NOTE
 
