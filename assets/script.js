@@ -50,7 +50,7 @@ function getSelectedRadioMood() {
     if (selectedMood) {
         selectedMood.checked = false;
         var selectedRating = parseInt(selectedMood.value);
-        painArray.push(selectedRating);
+        moodArray.push(selectedRating);
         checkSelectedRating(selectedRating);
     }
 }
@@ -83,7 +83,7 @@ function getSelectedRadioHealth() {
     if (selectedHealth) {
         selectedHealth.checked = false;
         var selectedRating = parseInt(selectedHealth.value);
-        painArray.push(selectedRating);
+       healthArray.push(selectedRating);
         checkSelectedRating(selectedRating);
     }
 }
@@ -126,7 +126,7 @@ function getSelectedRadioSleep() {
     if (selectedSleep) {
         selectedSleep.checked = false;
         var selectedRating = parseInt(selectedSleep.value);
-        painArray.push(selectedRating);
+        sleepArray.push(selectedRating);
         checkSelectedRating(selectedRating);
     }
 }
@@ -224,7 +224,7 @@ function displaySurveyChart(chartLabel, surveyData) {
 }
 
 // Button event listeners that trigger the chart to be shown in the your chart area
-chartBtnMood.addEventListener('click', function () {
+    chartBtnMood.addEventListener('click', function () {
     displaySurveyChart("Mood History", moodArray,)
 
 });
