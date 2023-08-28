@@ -69,6 +69,9 @@ HealthTracker was made possible through the collaborative efforts of a dedicated
 
 ## Link to Deployed Page
 
+## Link to GitHub Repo specifically for Health_Esteem
+
+https://github.com/JD2929/Health_Esteem
 
 
 ## NOTE
