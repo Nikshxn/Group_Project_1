@@ -50,7 +50,7 @@ function getSelectedRadioMood() {
     if (selectedMood) {
         selectedMood.checked = false;
         var selectedRating = parseInt(selectedMood.value);
-        painArray.push(selectedRating);
+        moodArray.push(selectedRating);
         checkSelectedRating(selectedRating);
     }
 }
@@ -83,7 +83,7 @@ function getSelectedRadioHealth() {
     if (selectedHealth) {
         selectedHealth.checked = false;
         var selectedRating = parseInt(selectedHealth.value);
-        painArray.push(selectedRating);
+        healthArray.push(selectedRating);
         checkSelectedRating(selectedRating);
     }
 }
@@ -126,7 +126,7 @@ function getSelectedRadioSleep() {
     if (selectedSleep) {
         selectedSleep.checked = false;
         var selectedRating = parseInt(selectedSleep.value);
-        painArray.push(selectedRating);
+        sleepArray.push(selectedRating);
         checkSelectedRating(selectedRating);
     }
 }
@@ -159,8 +159,8 @@ function displayQuoteOfTheDay() {
     var quoteObject = getapi(url);
     quoteObject.then((quoteResult) => {
         var quoteContentEl = document.getElementById("quoteContents");
-       quoteContentEl.textContent = quoteResult[0].quote;
-        
+        quoteContentEl.textContent = quoteResult[0].quote;
+
     })
 
 
@@ -171,7 +171,7 @@ displayQuoteOfTheDay()
 // function that retreives the health tip of the day from health_tip.js (our own file) and places it in the appropriate "card"
 
 function displayTipOfTheDay() {
-   
+
     function getRandomItem(healthTips) {
 
         // get random index value
